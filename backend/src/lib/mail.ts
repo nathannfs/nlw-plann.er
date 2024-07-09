@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 
-export async function getMailClient(){
+export async function getMailClient() {
   const account = await nodemailer.createTestAccount()
 
   const transporter = nodemailer.createTransport({
@@ -9,8 +9,8 @@ export async function getMailClient(){
     secure: false,
     auth: {
       user: account.user,
-      pass: account.pass
-    }
+      pass: account.pass,
+    },
   })
 
   return transporter
