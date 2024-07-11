@@ -6,11 +6,15 @@ import { Modal } from '../../components/modal'
 
 interface ConfirmTripModalProps {
   closeConfirmTripModal: () => void
+  setOwnerName: (name: string) => void
+  setOwnerEmail: (email: string) => void
   createTrip: (event: FormEvent<HTMLFormElement>) => void
 }
 
 export function ConfirmTripModal({
   closeConfirmTripModal,
+  setOwnerName,
+  setOwnerEmail,
   createTrip,
 }: ConfirmTripModalProps) {
   return (
@@ -36,12 +40,14 @@ export function ConfirmTripModal({
         icon={<User className="text-zinc-400 size-5" />}
         name="name"
         placeholder="Seu nome completo"
+        onChange={(event) => setOwnerName(event.target.value)}
       />
       <Input
         icon={<User className="text-zinc-400 size-5" />}
         type="email"
         name="email"
         placeholder="Seu e-mail pessoal"
+        onChange={(event) => setOwnerEmail(event.target.value)}
       />
 
       <Button type="submit" variant="primary" size="full">
